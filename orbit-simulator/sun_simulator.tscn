@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c44rf2bqhwdfm"]
+
+[ext_resource type="Script" uid="uid://clwcc1fcr1mjr" path="res://orbital_3d/OrbitalPivot3D.gd" id="1_bgklk"]
+[ext_resource type="Script" uid="uid://b471si3avogfr" path="res://orbital_3d/OrbitalSun3D.gd" id="2_qfinj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bq8we"]
+albedo_color = Color(0.07703612, 0.09893087, 0.07840345, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1dq33"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qfinj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bgklk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rk7i4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="OrbitalSun3D" type="Node3D" parent="." node_paths=PackedStringArray("orbital_pivot")]
+script = ExtResource("2_qfinj")
+sphere_radius = 4.0
+light_intensity = 25.0
+light_color = Color(0.47333914, 0.87067634, 0.5507468, 1)
+light_range = 1000.0
+orbital_static = false
+orbital_pivot = NodePath("../OrbitalPivot3D")
+orbital_plane = 5
+orbital_speed = 10.0
+orbital_radius = 30.0
+metadata/_custom_type_script = "uid://b471si3avogfr"
+
+[node name="OrbitalPivot3D" type="Node3D" parent="."]
+script = ExtResource("1_bgklk")
+negative_mass = false
+look_at_pivot = false
+metadata/_custom_type_script = "uid://clwcc1fcr1mjr"
+
+[node name="Terrain" type="MeshInstance3D" parent="OrbitalPivot3D"]
+transform = Transform3D(11.210861, 0, 0, 0, 0.7814449, 0, 0, 0, 12.87046, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bq8we")
+mesh = SubResource("BoxMesh_1dq33")
+skeleton = NodePath("../..")
+
+[node name="Capsule" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.3308618, 0, 0, 0, 1, 2.4610143, 1.4194314, 0)
+mesh = SubResource("CapsuleMesh_qfinj")
+
+[node name="Cilinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6717019, 2.3052745)
+mesh = SubResource("CylinderMesh_bgklk")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8136177, 0)
+mesh = SubResource("BoxMesh_rk7i4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.817004, 0.576632, 0, -0.576632, 0.817004, 0, 19.657833, 30.570717)
