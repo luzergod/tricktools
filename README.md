@@ -1,67 +1,56 @@
-# tricktools
-A simple and flexible orbital simulation toolkit for Godot 4, featuring custom nodes for creating suns, planets, and other celestial bodies with realistic gravity, light intensity, and orbital motion.
+# 🌌 Godot Orbital Toolkit
 
-Orbital System Tools for Godot 4
+A simple and flexible orbital simulation toolkit for **Godot 4**.
 
-This project provides a set of custom GDScript tools designed to simulate orbital mechanics, dynamic lighting, and celestial motion inside the Godot Engine 4.
-It allows developers to easily create stars, planets, and satellites that move and react according to mass, gravity, and distance, without needing manual setup every time.
+This toolkit allows you to easily create and simulate **suns, planets, and other orbital bodies** with realistic motion, lighting, and gravitational effects.  
+Designed for developers who want to build dynamic space environments with minimal setup.
 
-🌀 Overview
+---
 
-The system is composed of modular nodes and scripts that can be attached to any Node3D to simulate orbiting behavior, light intensity variation, and mass-based acceleration.
+## 🚀 Features
 
-Main components:
+- 🪐 Custom orbiting system (with 3D pivot control)
+- ☀️ Automatic light and mesh generation for suns
+- 🌍 Axis tilt support for planets and other bodies
+- ⚖️ Mass-based gravity and acceleration
+- 💡 Environment and light intensity integration
+- 🎮 Lightweight and performance-friendly
 
-OrbitalPivot3D – defines the mass center and calculates gravitational acceleration based on distance.
+---
 
-Orbital3D – base class that manages orbit mechanics around a pivot.
+## 🔧 Usage
 
-OrbitalSun3D – extends Orbital3D to automatically create a light source and visual sphere (a star or sun).
+1. Add the provided scripts (`OrbitalPivot3D.gd`, `Orbitator3D.gd`, `OrbitalSun3D.gd`, etc.) to your Godot project.  
+2. Create a new scene with a **Node3D** as the root.  
+3. Attach an **OrbitalPivot3D** to serve as the gravitational center.  
+4. Add one or more **Orbitator3D** or **OrbitalSun3D** nodes as children of the pivot.  
+5. Adjust orbit parameters like:
+   - `orbital_radius`
+   - `orbital_speed`
+   - `orbital_plane`
+   - `look_at_pivot`
+6. Press **Play** and watch your celestial system come to life.
 
-Dynamic Visibility – objects can collapse or hide when reaching the center of mass.
+---
 
-Inclination Control – each body can define its own axis tilt, simulating real planetary rotation.
+## ⚙️ Example Structure
 
-🌞 Example Usage
-# Attach to a new Sun node
-extends OrbitalSun3D
+Root
+├── OrbitalPivot3D
+│ ├── OrbitalSun3D
+│ ├── Orbitator3D (Planet)
+│ └── Orbitator3D (Moon)
 
-func _ready():
-    _create_sun_visuals(radius := 4.0, color := Color(1.0, 0.9, 0.7))
+yaml
+Copiar código
 
+---
 
-Automatically, a sphere mesh and a directional light are created with adjustable properties like:
+## 📜 License
 
-Size and emissive color
+MIT License — free to use and modify.
 
-Light intensity and shadow control
+---
 
-Rotation and tilt
-
-Gravity-based brightness variation
-
-⚙️ Features
-
-Physically inspired orbit simulation
-
-Self-contained lighting system
-
-Automatic sphere + light instantiation
-
-Adjustable axis inclination
-
-Mass-based gravitational acceleration
-
-Easy to extend and integrate with other Godot nodes
-
-🚀 Future Additions
-
-Orbital decay and eccentricity simulation
-
-Real-time orbital visualization gizmos
-
-Environmental lighting adaptation
-
-🧩 License
-
-MIT License — free to use, modify, and distribute with attribution.
+Created by **Geliardi S. Oliveira**  
+🧭 Explore. Simulate. Illuminate.
