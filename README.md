@@ -1,4 +1,4 @@
-# 🌌 Godot Orbital Toolkit
+# Godot Orbital Toolkit
 
 A simple and flexible orbital simulation toolkit for **Godot 4**.
 
@@ -7,7 +7,7 @@ Designed for developers who want to build dynamic space environments with minima
 
 ---
 
-## 🚀 Features
+## Features
 
 - 🪐 Custom orbiting system (with 3D pivot control)
 - ☀️ Automatic light and mesh generation for suns
@@ -18,7 +18,7 @@ Designed for developers who want to build dynamic space environments with minima
 
 ---
 
-## 🔧 Usage
+## Usage
 
 1. Add the provided scripts (`OrbitalPivot3D.gd`, `Orbitator3D.gd`, `OrbitalSun3D.gd`, etc.) to your Godot project.  
 2. Create a new scene with a **Node3D** as the root.  
@@ -40,13 +40,9 @@ Root
 │ ├── OrbitalSun3D
 │ ├── Orbitator3D (Planet)
 │ └── Orbitator3D (Moon)
-
-yaml
-Copiar código
-
 ---
 
-## 📜 License
+## License
 
 MIT License — free to use and modify.
 
